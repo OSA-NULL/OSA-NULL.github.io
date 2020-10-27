@@ -7,22 +7,24 @@
 <head>
   <meta charset="utf-8" />
     
+  <meta name="description" content="cdut osa-null" />
+  
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    15-网络应用开发 |  
+    15-网络应用开发 |  OSA-NULL
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
-  <link rel="shortcut icon" href="/osa.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   
   
-<link rel="stylesheet" href="/blog/dist/main.css">
+<link rel="stylesheet" href="/dist/main.css">
 
   
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
 
   
-<link rel="stylesheet" href="/blog/css/custom.css">
+<link rel="stylesheet" href="/css/custom.css">
 
   
   
@@ -40,9 +42,6 @@
 <body>
   <div id="app">
     
-      
-      <canvas width="1777" height="841"
-        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
       
     <main class="content on">
       <section class="outer">
@@ -65,11 +64,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/blog/2019/10/02/tutorials/Python/15.%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" class="article-date">
+      <a href="/2019/10/02/tutorials/Python/15.%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" class="article-date">
   <time datetime="2019-10-01T16:00:00.000Z" itemprop="datePublished">2019-10-02</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/Tutorials/">Tutorials</a> / <a class="article-category-link" href="/blog/categories/Tutorials/Python/">Python</a>
+    <a class="article-category-link" href="/categories/Tutorials/">Tutorials</a> / <a class="article-category-link" href="/categories/Tutorials/Python/">Python</a>
   </div>
   
 <div class="word_count">
@@ -77,7 +76,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.1k</span>
+            <span class="post-count">1.2k</span>
         </span>
     </span>
 
@@ -86,7 +85,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -104,16 +103,22 @@
   <h2 id="15-网络应用开发"><a href="#15-网络应用开发" class="headerlink" title="15-网络应用开发"></a>15-网络应用开发</h2><h3 id="发送电子邮件"><a href="#发送电子邮件" class="headerlink" title="发送电子邮件"></a>发送电子邮件</h3><p>在即时通信软件如此发达的今天，电子邮件仍然是互联网上使用最为广泛的应用之一，公司向应聘者发出录用通知、网站向用户发送一个激活账号的链接、银行向客户推广它们的理财产品等几乎都是通过电子邮件来完成的，而这些任务应该都是由程序自动完成的。</p>
 <p>就像我们可以用HTTP（超文本传输协议）来访问一个网站一样，发送邮件要使用SMTP（简单邮件传输协议），SMTP也是一个建立在TCP（传输控制协议）提供的可靠数据传输服务的基础上的应用级协议，它规定了邮件的发送者如何跟发送邮件的服务器进行通信的细节，而Python中的smtplib模块将这些操作简化成了几个简单的函数。</p>
 <p>下面的代码演示了如何在Python发送邮件。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> smtplib <span class="keyword">import</span> SMTP</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 请自行修改下面的邮件发送者和接收者</span></span><br><span class="line">    sender = <span class="string">'abcdefg@126.com'</span></span><br><span class="line">    receivers = [<span class="string">'uvwxyz@qq.com'</span>, <span class="string">'uvwxyz@126.com'</span>]</span><br><span class="line">    message = MIMEText(<span class="string">'用Python发送邮件的示例代码.'</span>, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">    message[<span class="string">'From'</span>] = Header(<span class="string">'王大锤'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">    message[<span class="string">'To'</span>] = Header(<span class="string">'骆昊'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">    message[<span class="string">'Subject'</span>] = Header(<span class="string">'示例代码实验邮件'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">    smtper = SMTP(<span class="string">'smtp.126.com'</span>)</span><br><span class="line">    <span class="comment"># 请自行修改下面的登录口令</span></span><br><span class="line">    smtper.login(sender, <span class="string">'secretpass'</span>)</span><br><span class="line">    smtper.sendmail(sender, receivers, message.as_string())</span><br><span class="line">    print(<span class="string">'邮件发送完成!'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> smtplib <span class="keyword">import</span> SMTP</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="comment"># 请自行修改下面的邮件发送者和接收者</span></span><br><span class="line">    sender = <span class="string">&#x27;abcdefg@126.com&#x27;</span></span><br><span class="line">    receivers = [<span class="string">&#x27;uvwxyz@qq.com&#x27;</span>, <span class="string">&#x27;uvwxyz@126.com&#x27;</span>]</span><br><span class="line">    message = MIMEText(<span class="string">&#x27;用Python发送邮件的示例代码.&#x27;</span>, <span class="string">&#x27;plain&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    message[<span class="string">&#x27;From&#x27;</span>] = Header(<span class="string">&#x27;王大锤&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    message[<span class="string">&#x27;To&#x27;</span>] = Header(<span class="string">&#x27;骆昊&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    message[<span class="string">&#x27;Subject&#x27;</span>] = Header(<span class="string">&#x27;示例代码实验邮件&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    smtper = SMTP(<span class="string">&#x27;smtp.126.com&#x27;</span>)</span><br><span class="line">    <span class="comment"># 请自行修改下面的登录口令</span></span><br><span class="line">    smtper.login(sender, <span class="string">&#x27;secretpass&#x27;</span>)</span><br><span class="line">    smtper.sendmail(sender, receivers, message.as_string())</span><br><span class="line">    print(<span class="string">&#x27;邮件发送完成!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
 <p>如果要发送带有附件的邮件，那么可以按照下面的方式进行操作。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> smtplib <span class="keyword">import</span> SMTP</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.mime.image <span class="keyword">import</span> MIMEImage</span><br><span class="line"><span class="keyword">from</span> email.mime.multipart <span class="keyword">import</span> MIMEMultipart</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 创建一个带附件的邮件消息对象</span></span><br><span class="line">    message = MIMEMultipart()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建文本内容</span></span><br><span class="line">    text_content = MIMEText(<span class="string">'附件中有本月数据请查收'</span>, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">    message[<span class="string">'Subject'</span>] = Header(<span class="string">'本月数据'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">    <span class="comment"># 将文本内容添加到邮件消息对象中</span></span><br><span class="line">    message.attach(text_content)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 读取文件并将文件作为附件添加到邮件消息对象中</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'/Users/Hao/Desktop/hello.txt'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        txt = MIMEText(f.read(), <span class="string">'base64'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">        txt[<span class="string">'Content-Type'</span>] = <span class="string">'text/plain'</span></span><br><span class="line">        txt[<span class="string">'Content-Disposition'</span>] = <span class="string">'attachment; filename=hello.txt'</span></span><br><span class="line">        message.attach(txt)</span><br><span class="line">    <span class="comment"># 读取文件并将文件作为附件添加到邮件消息对象中</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'/Users/Hao/Desktop/汇总数据.xlsx'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        xls = MIMEText(f.read(), <span class="string">'base64'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">        xls[<span class="string">'Content-Type'</span>] = <span class="string">'application/vnd.ms-excel'</span></span><br><span class="line">        xls[<span class="string">'Content-Disposition'</span>] = <span class="string">'attachment; filename=month-data.xlsx'</span></span><br><span class="line">        message.attach(xls)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建SMTP对象</span></span><br><span class="line">    smtper = SMTP(<span class="string">'smtp.126.com'</span>)</span><br><span class="line">    <span class="comment"># 开启安全连接</span></span><br><span class="line">    <span class="comment"># smtper.starttls()</span></span><br><span class="line">    sender = <span class="string">'abcdefg@126.com'</span></span><br><span class="line">    receivers = [<span class="string">'uvwxyz@qq.com'</span>]</span><br><span class="line">    <span class="comment"># 登录到SMTP服务器</span></span><br><span class="line">    <span class="comment"># 请注意此处不是使用密码而是邮件客户端授权码进行登录</span></span><br><span class="line">    <span class="comment"># 对此有疑问的读者可以联系自己使用的邮件服务器客服</span></span><br><span class="line">    smtper.login(sender, <span class="string">'secretpass'</span>)</span><br><span class="line">    <span class="comment"># 发送邮件</span></span><br><span class="line">    smtper.sendmail(sender, receivers, message.as_string())</span><br><span class="line">    <span class="comment"># 与邮件服务器断开连接</span></span><br><span class="line">    smtper.quit()</span><br><span class="line">    print(<span class="string">'发送完成!'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> smtplib <span class="keyword">import</span> SMTP</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.mime.image <span class="keyword">import</span> MIMEImage</span><br><span class="line"><span class="keyword">from</span> email.mime.multipart <span class="keyword">import</span> MIMEMultipart</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="comment"># 创建一个带附件的邮件消息对象</span></span><br><span class="line">    message = MIMEMultipart()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建文本内容</span></span><br><span class="line">    text_content = MIMEText(<span class="string">&#x27;附件中有本月数据请查收&#x27;</span>, <span class="string">&#x27;plain&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    message[<span class="string">&#x27;Subject&#x27;</span>] = Header(<span class="string">&#x27;本月数据&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    <span class="comment"># 将文本内容添加到邮件消息对象中</span></span><br><span class="line">    message.attach(text_content)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 读取文件并将文件作为附件添加到邮件消息对象中</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">&#x27;/Users/Hao/Desktop/hello.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        txt = MIMEText(f.read(), <span class="string">&#x27;base64&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        txt[<span class="string">&#x27;Content-Type&#x27;</span>] = <span class="string">&#x27;text/plain&#x27;</span></span><br><span class="line">        txt[<span class="string">&#x27;Content-Disposition&#x27;</span>] = <span class="string">&#x27;attachment; filename=hello.txt&#x27;</span></span><br><span class="line">        message.attach(txt)</span><br><span class="line">    <span class="comment"># 读取文件并将文件作为附件添加到邮件消息对象中</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">&#x27;/Users/Hao/Desktop/汇总数据.xlsx&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        xls = MIMEText(f.read(), <span class="string">&#x27;base64&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        xls[<span class="string">&#x27;Content-Type&#x27;</span>] = <span class="string">&#x27;application/vnd.ms-excel&#x27;</span></span><br><span class="line">        xls[<span class="string">&#x27;Content-Disposition&#x27;</span>] = <span class="string">&#x27;attachment; filename=month-data.xlsx&#x27;</span></span><br><span class="line">        message.attach(xls)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建SMTP对象</span></span><br><span class="line">    smtper = SMTP(<span class="string">&#x27;smtp.126.com&#x27;</span>)</span><br><span class="line">    <span class="comment"># 开启安全连接</span></span><br><span class="line">    <span class="comment"># smtper.starttls()</span></span><br><span class="line">    sender = <span class="string">&#x27;abcdefg@126.com&#x27;</span></span><br><span class="line">    receivers = [<span class="string">&#x27;uvwxyz@qq.com&#x27;</span>]</span><br><span class="line">    <span class="comment"># 登录到SMTP服务器</span></span><br><span class="line">    <span class="comment"># 请注意此处不是使用密码而是邮件客户端授权码进行登录</span></span><br><span class="line">    <span class="comment"># 对此有疑问的读者可以联系自己使用的邮件服务器客服</span></span><br><span class="line">    smtper.login(sender, <span class="string">&#x27;secretpass&#x27;</span>)</span><br><span class="line">    <span class="comment"># 发送邮件</span></span><br><span class="line">    smtper.sendmail(sender, receivers, message.as_string())</span><br><span class="line">    <span class="comment"># 与邮件服务器断开连接</span></span><br><span class="line">    smtper.quit()</span><br><span class="line">    print(<span class="string">&#x27;发送完成!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
-<h3 id="发送短信"><a href="#发送短信" class="headerlink" title="发送短信"></a>发送短信</h3><p>发送短信也是项目中常见的功能，网站的注册码、验证码、营销信息基本上都是通过短信来发送给用户的。在下面的代码中我们使用了<a href="http://www.ihuyi.com/" target="_blank" rel="noopener">互亿无线</a>短信平台（该平台为注册用户提供了50条免费短信以及常用开发语言发送短信的demo，可以登录该网站并在用户自服务页面中对短信进行配置）提供的API接口实现了发送短信的服务，当然国内的短信平台很多，读者可以根据自己的需要进行选择（通常会考虑费用预算、短信达到率、使用的难易程度等指标），如果需要在商业项目中使用短信服务建议购买短信平台提供的套餐服务。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"><span class="keyword">import</span> http.client</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    host  = <span class="string">"106.ihuyi.com"</span></span><br><span class="line">    sms_send_uri = <span class="string">"/webservice/sms.php?method=Submit"</span></span><br><span class="line">    <span class="comment"># 下面的参数需要填入自己注册的账号和对应的密码</span></span><br><span class="line">    params = urllib.parse.urlencode(&#123;<span class="string">'account'</span>: <span class="string">'你自己的账号'</span>, <span class="string">'password'</span> : <span class="string">'你自己的密码'</span>, <span class="string">'content'</span>: <span class="string">'您的验证码是：147258。请不要把验证码泄露给其他人。'</span>, <span class="string">'mobile'</span>: <span class="string">'接收者的手机号'</span>, <span class="string">'format'</span>:<span class="string">'json'</span> &#125;)</span><br><span class="line">    print(params)</span><br><span class="line">    headers = &#123;<span class="string">'Content-type'</span>: <span class="string">'application/x-www-form-urlencoded'</span>, <span class="string">'Accept'</span>: <span class="string">'text/plain'</span>&#125;</span><br><span class="line">    conn = http.client.HTTPConnection(host, port=<span class="number">80</span>, timeout=<span class="number">30</span>)</span><br><span class="line">    conn.request(<span class="string">'POST'</span>, sms_send_uri, params, headers)</span><br><span class="line">    response = conn.getresponse()</span><br><span class="line">    response_str = response.read()</span><br><span class="line">    jsonstr = response_str.decode(<span class="string">'utf-8'</span>)</span><br><span class="line">    print(json.loads(jsonstr))</span><br><span class="line">    conn.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h3 id="发送短信"><a href="#发送短信" class="headerlink" title="发送短信"></a>发送短信</h3><p>发送短信也是项目中常见的功能，网站的注册码、验证码、营销信息基本上都是通过短信来发送给用户的。在下面的代码中我们使用了<a target="_blank" rel="noopener" href="http://www.ihuyi.com/">互亿无线</a>短信平台（该平台为注册用户提供了50条免费短信以及常用开发语言发送短信的demo，可以登录该网站并在用户自服务页面中对短信进行配置）提供的API接口实现了发送短信的服务，当然国内的短信平台很多，读者可以根据自己的需要进行选择（通常会考虑费用预算、短信达到率、使用的难易程度等指标），如果需要在商业项目中使用短信服务建议购买短信平台提供的套餐服务。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"><span class="keyword">import</span> http.client</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    host  = <span class="string">&quot;106.ihuyi.com&quot;</span></span><br><span class="line">    sms_send_uri = <span class="string">&quot;/webservice/sms.php?method=Submit&quot;</span></span><br><span class="line">    <span class="comment"># 下面的参数需要填入自己注册的账号和对应的密码</span></span><br><span class="line">    params = urllib.parse.urlencode(&#123;<span class="string">&#x27;account&#x27;</span>: <span class="string">&#x27;你自己的账号&#x27;</span>, <span class="string">&#x27;password&#x27;</span> : <span class="string">&#x27;你自己的密码&#x27;</span>, <span class="string">&#x27;content&#x27;</span>: <span class="string">&#x27;您的验证码是：147258。请不要把验证码泄露给其他人。&#x27;</span>, <span class="string">&#x27;mobile&#x27;</span>: <span class="string">&#x27;接收者的手机号&#x27;</span>, <span class="string">&#x27;format&#x27;</span>:<span class="string">&#x27;json&#x27;</span> &#125;)</span><br><span class="line">    print(params)</span><br><span class="line">    headers = &#123;<span class="string">&#x27;Content-type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>, <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;text/plain&#x27;</span>&#125;</span><br><span class="line">    conn = http.client.HTTPConnection(host, port=<span class="number">80</span>, timeout=<span class="number">30</span>)</span><br><span class="line">    conn.request(<span class="string">&#x27;POST&#x27;</span>, sms_send_uri, params, headers)</span><br><span class="line">    response = conn.getresponse()</span><br><span class="line">    response_str = response.read()</span><br><span class="line">    jsonstr = response_str.decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    print(json.loads(jsonstr))</span><br><span class="line">    conn.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
  
       <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
       
     </div>
     
@@ -125,7 +130,9 @@
         <li>
           <i class="ri-copyright-line"></i>
           <strong>Copyright： </strong>
+          
           Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
         </li>
       </ul>
     </div>
@@ -174,7 +181,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://vvenzhou.gitee.io/blog/2019/10/02/tutorials/Python/15.%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/10/02/tutorials/Python/15.%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -185,7 +192,7 @@
    
   <nav class="article-nav">
     
-      <a href="/blog/2019/10/02/tutorials/Python/13.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/" class="article-nav-link">
+      <a href="/2019/10/02/tutorials/Python/13.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
@@ -195,14 +202,62 @@
       </a>
     
     
-      <a href="/blog/2019/10/02/tutorials/Linux/Linux_general/" class="article-nav-link">
+      <a href="/2019/10/02/tutorials/Python/01.%E5%88%9D%E8%AF%86Python/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Linux in general</div>
+        <div class="article-nav-title">01 - 初识Python</div>
       </a>
     
   </nav>
 
-  
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "chaSYi8FMdJBwzIBpxeNjqWC-gzGzoHsz",
+    app_key: "PqqkLYgPkHvH1BmyQqySWnSK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
      
 </article>
 
@@ -212,7 +267,7 @@
     <ul>
       <li>
         Copyrights &copy;
-        2020
+        2015-2020
         <i class="ri-heart-fill heart_icon"></i> OSA-NULL
       </li>
     </ul>
@@ -230,7 +285,17 @@
     <ul>
       <li>
         
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
       </li>
+    </ul>
+    <ul>
+      
     </ul>
     <ul>
       
@@ -238,6 +303,8 @@
     <ul>
       <li>
         <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
         
       </li>
     </ul>
@@ -259,45 +326,41 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/blog/"><img src="/images/ayer-side.svg" alt="OSA-NULL"></a>
+    <a href="/"><img src="/images/ayer-side.svg" alt="OSA-NULL"></a>
   </div>
   
   <ul class="nav nav-main">
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/">主页</a>
+      <a class="nav-item-link" href="/">主页</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/categories/Tutorials">教程</a>
+      <a class="nav-item-link" href="/projects">协会项目</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/categories/News">每周咨询</a>
+      <a class="nav-item-link" href="/categories/News">每周咨询</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/projects">协会项目</a>
+      <a class="nav-item-link" href="/categories/Tutorials">教程推荐</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/ideas">Idea库</a>
+      <a class="nav-item-link" href="/ideas">Idea库</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/categories">分类</a>
+      <a class="nav-item-link" href="/categories">分类</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/tags">标签</a>
+      <a class="nav-item-link" href="/tags">标签</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/archives">归档</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/blog/about">关于我们</a>
+      <a class="nav-item-link" href="/about">关于我</a>
     </li>
     
   </ul>
@@ -306,6 +369,14 @@
   <ul class="nav">
     <li class="nav-item">
       
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
       
     </li>
   </ul>
@@ -328,22 +399,32 @@
 <!-- #reward -->
 <div id="reward">
   <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
   <div class="reward-box">
     
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
     
   </div>
 </div>
     
-<script src="/blog/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery-2.0.3.min.js"></script>
 
 
-<script src="/blog/js/lazyload.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
 
 
-<script src="/blog/js/tocbot.min.js"></script>
+<script src="/js/tocbot.min.js"></script>
 
 <script>
   tocbot.init({
@@ -363,7 +444,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 
-<script src="/blog/dist/main.js"></script>
+<script src="/dist/main.js"></script>
 
 <!-- ImageViewer -->
 
@@ -480,20 +561,20 @@
 
 <!-- busuanzi  -->
 
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
 <!-- ClickLove -->
 
 <!-- ClickBoom1 -->
 
 <!-- ClickBoom2 -->
 
-
-<script src="/blog/js/clickBoom2.js"></script>
-
-
 <!-- CodeCopy -->
 
 
-<link rel="stylesheet" href="/blog/css/clipboard.css">
+<link rel="stylesheet" href="/css/clipboard.css">
 
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
@@ -552,10 +633,6 @@
 
 
 <!-- CanvasBackground -->
-
-
-<script src="/blog/js/dz.js"></script>
-
 
 
     

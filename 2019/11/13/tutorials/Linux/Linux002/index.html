@@ -7,22 +7,24 @@
 <head>
   <meta charset="utf-8" />
     
+  <meta name="description" content="cdut osa-null" />
+  
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Linux002 Bash基础 |  
+    Linux002 Bash基础 |  OSA-NULL
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
-  <link rel="shortcut icon" href="/osa.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   
   
-<link rel="stylesheet" href="/blog/dist/main.css">
+<link rel="stylesheet" href="/dist/main.css">
 
   
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
 
   
-<link rel="stylesheet" href="/blog/css/custom.css">
+<link rel="stylesheet" href="/css/custom.css">
 
   
   
@@ -40,9 +42,6 @@
 <body>
   <div id="app">
     
-      
-      <canvas width="1777" height="841"
-        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
       
     <main class="content on">
       <section class="outer">
@@ -65,11 +64,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/blog/2019/11/13/tutorials/Linux/Linux002/" class="article-date">
+      <a href="/2019/11/13/tutorials/Linux/Linux002/" class="article-date">
   <time datetime="2019-11-13T07:20:43.000Z" itemprop="datePublished">2019-11-13</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/Tutorials/">Tutorials</a> / <a class="article-category-link" href="/blog/categories/Tutorials/Linux/">Linux</a>
+    <a class="article-category-link" href="/categories/Tutorials/">Tutorials</a> / <a class="article-category-link" href="/categories/Tutorials/Linux/">Linux</a>
   </div>
   
 <div class="word_count">
@@ -126,7 +125,7 @@
 <h2 id="Bash"><a href="#Bash" class="headerlink" title="$ Bash"></a>$ Bash</h2><p>Bash啊，他是Shell的一种，目前的绝大多数Linux发行版都把Bash作为默认Shell。Bash的功能也比sh（shell的第一个版本）强大很多。</p>
 <blockquote>
 <p>在图形界面完备的Linux发行版中（如Ubuntu），你需要打开叫做<code>Terminal</code>(终端)的应用程序来操作Shell。</p>
-<p>简述：终端干的活儿是从用户这里接收输入（键盘、鼠标等输入设备），扔给 Shell，然后把 Shell 返回的结果展示给用户（比如通过显示器）。而 Shell 干的活儿是从终端那里拿到用户输入的命令，解析后交给操作系统内核去执行，并把执行结果返回给终端。更多内容，包括 terminal Shell tty 之间的联系和差别，<a href="https://www.cnblogs.com/sddai/p/9769086.html" target="_blank" rel="noopener">请移步此链接</a></p>
+<p>简述：终端干的活儿是从用户这里接收输入（键盘、鼠标等输入设备），扔给 Shell，然后把 Shell 返回的结果展示给用户（比如通过显示器）。而 Shell 干的活儿是从终端那里拿到用户输入的命令，解析后交给操作系统内核去执行，并把执行结果返回给终端。更多内容，包括 terminal Shell tty 之间的联系和差别，<a target="_blank" rel="noopener" href="https://www.cnblogs.com/sddai/p/9769086.html">请移步此链接</a></p>
 </blockquote>
 <p>Bash和其他shell看起来差不多相同，黑底白字，偶尔出现漂亮鲜艳的红色（你绝对不会喜欢bash下出现红色的字的）。他大概长这样子，你看到的这整个框体就是terminal，里面的内容就是Bash了。</p>
 <p><img src="bash.png" alt=""></p>
@@ -160,13 +159,13 @@
 <p>你还可以把好多option写在一起，试试用<code>ls -al</code>代替<code>ls -a -l</code>。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vvenzhou@ubuntu:~$ ls -al</span><br></pre></td></tr></table></figure>
 <p><img src="ls_05.png" alt=""><br>（至于-l option的作用我暂时不讲）</p>
-<p>这些就是命令（command）的基本使用方法。现在去自己的Linux上试试上面那个表中的命令吧，更多命令及使用方法<a href="https://osa-null.github.io/[object%20Object]/Linux/Linux_general/" target="_blank" rel="noopener">请移步本系列教程的另一个帖子</a>。<strong>注意要细心观察输入了命令后的种种变化</strong>。</p>
+<p>这些就是命令（command）的基本使用方法。现在去自己的Linux上试试上面那个表中的命令吧，更多命令及使用方法<a target="_blank" rel="noopener" href="https://osa-null.github.io/[object%20Object]/Linux/Linux_general/">请移步本系列教程的另一个帖子</a>。<strong>注意要细心观察输入了命令后的种种变化</strong>。</p>
 <p>如果你不知道某个命令该怎么用，有哪些option，需要什么argument，请使用<code>man</code> 命令，如<code>man ls</code> <code>man man</code>。要退出 man 请注意终端下方的高亮提示。</p>
 <p>Linux是个高度自由的操作系统，也请大家多多锻炼动手能力，自己发现错误，找到错误，解决错误的过程才是你真正学习Linux知识的时候。</p>
 <p>Linux学习之路的3条建议</p>
 <ul>
 <li>善用man命令</li>
-<li>善用 <a href="https://www.baidu.com" target="_blank" rel="noopener">Baidu</a> <a href="https://www.bing.com" target="_blank" rel="noopener">Bing</a> 以及<a href="https://www.google.com" target="_blank" rel="noopener">某404网站</a>。</li>
+<li>善用 <a target="_blank" rel="noopener" href="https://www.baidu.com">Baidu</a> <a target="_blank" rel="noopener" href="https://www.bing.com">Bing</a> 以及<a target="_blank" rel="noopener" href="https://www.google.com">某404网站</a>。</li>
 <li>学好英语</li>
 </ul>
 <p>如果你去各个渠道都找不到解决办法，欢迎来找我或者其他人，虽然我肯定也不会（你在网上都找不到了，我也一定找不到），但我们可以一起来尝试解决它。交流出真知，别忘了，我们有强大的开源社区！！！</p>
@@ -196,6 +195,12 @@
  
       <!-- reward -->
       
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
     </div>
     
 
@@ -206,7 +211,9 @@
         <li>
           <i class="ri-copyright-line"></i>
           <strong>Copyright： </strong>
+          
           Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
         </li>
       </ul>
     </div>
@@ -255,7 +262,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://vvenzhou.gitee.io/blog/2019/11/13/tutorials/Linux/Linux002/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/11/13/tutorials/Linux/Linux002/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -266,7 +273,7 @@
    
   <nav class="article-nav">
     
-      <a href="/blog/2019/11/15/tutorials/Linux/Linux003/" class="article-nav-link">
+      <a href="/2019/11/15/tutorials/Linux/Linux003/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
@@ -276,14 +283,62 @@
       </a>
     
     
-      <a href="/blog/2019/11/13/tutorials/Linux/Linux001/" class="article-nav-link">
+      <a href="/2019/11/13/tutorials/Linux/Linux001/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title">Linux001 Linux简介</div>
       </a>
     
   </nav>
 
-  
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "chaSYi8FMdJBwzIBpxeNjqWC-gzGzoHsz",
+    app_key: "PqqkLYgPkHvH1BmyQqySWnSK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
      
 </article>
 
@@ -293,7 +348,7 @@
     <ul>
       <li>
         Copyrights &copy;
-        2020
+        2015-2020
         <i class="ri-heart-fill heart_icon"></i> OSA-NULL
       </li>
     </ul>
@@ -311,7 +366,17 @@
     <ul>
       <li>
         
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
       </li>
+    </ul>
+    <ul>
+      
     </ul>
     <ul>
       
@@ -319,6 +384,8 @@
     <ul>
       <li>
         <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
         
       </li>
     </ul>
@@ -340,45 +407,41 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/blog/"><img src="/images/ayer-side.svg" alt="OSA-NULL"></a>
+    <a href="/"><img src="/images/ayer-side.svg" alt="OSA-NULL"></a>
   </div>
   
   <ul class="nav nav-main">
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/">主页</a>
+      <a class="nav-item-link" href="/">主页</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/categories/Tutorials">教程</a>
+      <a class="nav-item-link" href="/projects">协会项目</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/categories/News">每周咨询</a>
+      <a class="nav-item-link" href="/categories/News">每周咨询</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/projects">协会项目</a>
+      <a class="nav-item-link" href="/categories/Tutorials">教程推荐</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/ideas">Idea库</a>
+      <a class="nav-item-link" href="/ideas">Idea库</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/categories">分类</a>
+      <a class="nav-item-link" href="/categories">分类</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/tags">标签</a>
+      <a class="nav-item-link" href="/tags">标签</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/blog/archives">归档</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/blog/about">关于我们</a>
+      <a class="nav-item-link" href="/about">关于我</a>
     </li>
     
   </ul>
@@ -387,6 +450,14 @@
   <ul class="nav">
     <li class="nav-item">
       
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
       
     </li>
   </ul>
@@ -409,22 +480,32 @@
 <!-- #reward -->
 <div id="reward">
   <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
   <div class="reward-box">
     
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
     
   </div>
 </div>
     
-<script src="/blog/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery-2.0.3.min.js"></script>
 
 
-<script src="/blog/js/lazyload.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
 
 
-<script src="/blog/js/tocbot.min.js"></script>
+<script src="/js/tocbot.min.js"></script>
 
 <script>
   tocbot.init({
@@ -444,7 +525,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 
-<script src="/blog/dist/main.js"></script>
+<script src="/dist/main.js"></script>
 
 <!-- ImageViewer -->
 
@@ -561,20 +642,20 @@
 
 <!-- busuanzi  -->
 
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
 <!-- ClickLove -->
 
 <!-- ClickBoom1 -->
 
 <!-- ClickBoom2 -->
 
-
-<script src="/blog/js/clickBoom2.js"></script>
-
-
 <!-- CodeCopy -->
 
 
-<link rel="stylesheet" href="/blog/css/clipboard.css">
+<link rel="stylesheet" href="/css/clipboard.css">
 
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
@@ -633,10 +714,6 @@
 
 
 <!-- CanvasBackground -->
-
-
-<script src="/blog/js/dz.js"></script>
-
 
 
     
